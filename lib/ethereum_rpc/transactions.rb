@@ -6,6 +6,13 @@ module EthereumRPC
       @request_url = request_url
     end
 
+		# Returns details of an ethereum transaction using transaction hash
+		# Sample response added in the README.md file
+
+    def transaction_details(tx_hash: )
+      api_request(method: 'eth_getTransactionByHash', params: [tx_hash], id: 1)
+    end
+
     # Returns True if status is success and more than 10 blocks are mined after transaction
     # Returns False if either status is not success ot less than 10 blocks are mined after transaction
     # Returns nil otherwise
